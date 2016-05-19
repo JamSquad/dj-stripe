@@ -315,7 +315,7 @@ class Customer(StripeCustomer):
         if stripe_subscription:
             if current_subscription:
                 logger.debug('Updating subscription')
-                current_subscription.plan = djstripe_settings.plan_from_stripe_id(stripe_subscription.plan.id)
+                current_subscription.plan = stripe_subscription.plan.id
                 current_subscription.current_period_start = convert_tstamp(
                     stripe_subscription.current_period_start
                 )
